@@ -10,7 +10,7 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=false
 # plugins
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh -y
+source $ZSH_CUSTOM/oh-my-zsh.sh
 
 # aliases
 # alias vim="nvim"
