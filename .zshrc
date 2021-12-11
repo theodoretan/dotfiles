@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-# export ZSH="~/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set the theme of zsh
 ZSH_THEME="spaceship"
@@ -10,7 +10,7 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=false
 # plugins
 plugins=(git)
 
-source $ZSH_CUSTOM/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # aliases
 # alias vim="nvim"
