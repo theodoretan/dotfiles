@@ -7,9 +7,9 @@ export ZSH_CUSTOM="~/.oh-my-zsh/custom"
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
-# ZSH_THEME="spaceship"
+ZSH_THEME="spaceship"
 
-source "~/.oh-my-zsh.sh/oh-my-zsh.sh" -y
+source "$ZSH/oh-my-zsh.sh" -y
 
 # link dotfiles
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
+# ln -sf "~/dotfiles/.zshrc" "~/.zshrc"
