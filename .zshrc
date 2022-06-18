@@ -2,23 +2,24 @@ if [ $SPIN -eq 1 ]
 then
   # dont run this stuff
 else
-  # Path to your oh-my-zsh installation.
-  export ZSH="~/.oh-my-zsh"
-
-  # Set the theme of zsh
-  ZSH_THEME="spaceship"
-
-  # Spaceship prompt config
-  SPACESHIP_PROMPT_PREFIXES_SHOW=false
-
-  # plugins
-  plugins=(git)
-
-  source $ZSH/oh-my-zsh.sh
+  alias fun="cd ~/Documents/workspace"
 fi
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set the theme of zsh
+ZSH_THEME="spaceship"
 
 # Spaceship prompt config
 SPACESHIP_PROMPT_PREFIXES_SHOW=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+
+# plugins
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"

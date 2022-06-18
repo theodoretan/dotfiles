@@ -3,6 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :let g:mapleader=" "  " set leader key to <space>
 
+set showmatch         " show matching bracket
 set expandtab					" use spaces instead of tabs
 set smarttab					" set smart tab 
 set shiftwidth=2			" set width for automatic indentation
@@ -11,7 +12,7 @@ set nu rnu 						" set relative line numbers
 set ai								" set auto indent
 set si								" set smart indent
 
-syntax on
+syntax on             " syntax highlighting
 
 " easier splitting
 nnoremap <leader>sl :vsp<CR>
@@ -35,6 +36,7 @@ nnoremap <leader><C-r> :source ~/.config/nvim/init.vim<CR>
 
 " open file tree
 nnoremap <leader>a :Ex<CR>
+let g:netrw_banner=0      " get rid of banner at the top
 let g:netrw_liststyle=3   " make netrw tree style
 
 " find word under cursor in file
