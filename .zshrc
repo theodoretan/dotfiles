@@ -1,4 +1,4 @@
-if [ $SPIN -eq 1 ]
+if [[ $SPIN -eq 1 ]]
 then
   # dont run this stuff
 else

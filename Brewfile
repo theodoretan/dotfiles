@@ -32,12 +32,12 @@ cask "via"
 cask "alfred"
 cask "notion"
 cask "obsidian"
-cask "logitech-options"
+# cask "logitech-options"
 cask "obs"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"
 
 # apps from app store
-# mas "HP Smart for Desktop", id: 1474276998
-mas "Magnet", id: 441258766
+mas "HP Smart for Desktop", id: 1474276998
+# mas "Magnet", id: 441258766
