@@ -34,6 +34,7 @@ cask "notion"
 cask "obsidian"
 # cask "logitech-options"
 cask "obs"
+cask "blackhole-2ch"
 
 # fonts
 cask "font-jetbrains-mono-nerd-font"
