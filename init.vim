@@ -10,6 +10,7 @@ set tabstop=2					" set width of tab character
 set nu rnu 						" set relative line numbers
 set ai								" set auto indent
 set si								" set smart indent
+set re=0              " set old regexp engine off for performance issues
 
 syntax on
 
@@ -139,18 +140,20 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" enter to confirm completion
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -162,10 +165,18 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Apply the most preferred quickfix action to fix diagnostic on the current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gitgutter settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set updatetime=400
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-jsx-typscript settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug install + settings
@@ -189,8 +200,10 @@ Plug 'junegunn/fzf.vim'
 
 " typescript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 
 " linting
 Plug 'dense-analysis/ale'
